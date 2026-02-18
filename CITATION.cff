@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "Boundary-Decoupled Relational Observables, Gauge Fixing, Boundary Jets, and Sharp BMS Decoupling in Classical General Relativity"
+message: "If you use this manuscript, please cite it as below."
+type: article
+authors:
+  - family-names: Vasquez
+    given-names: Inacio F.
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.18684473
+version: "urf-p-0002-v1"
+date-released: 2026-02-18
+repository-code: "https://github.com/inaciovasquez2020/URF-P-0002"
+license: "CC-BY-4.0"
