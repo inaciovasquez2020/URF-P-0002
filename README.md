@@ -1,20 +1,30 @@
-# URF Manuscript: <TITLE OF MANUSCRIPT>
+# URF Manuscript README — Template v1.0
 
+This README serves as a **cover page and binding review contract** for a manuscript published under the **Unified Rigidity Framework (URF)**.
+
+It defines identity, scope, verification, and the rules for public review.
+
+---
+
+## Manuscript Identity
+
+**Title:** Boundary-Decoupled Relational Observables, Gauge Fixing, Boundary Jets, and Sharp BMS Decoupling in Classical General Relativity  
 **Manuscript ID:** URF-P-0002  
-**Author:** Inacio F. Vasquez  
-**Status:** DRAFT  
-**Version Tag:** URF-P-0002-v0.1  
-**DOI:** 10.5281/zenodo.18677050
+**Author:** Inacio F. Vasquez (Independent Researcher)  
+**Status:** FROZEN  
+**Version Tag:** urf-p-0002-v1  
+**DOI:** Not yet assigned
 
 ---
 
 ## Canonical Artifacts
 
-This repository is the canonical source for this manuscript.
+This repository is the **canonical source** for this manuscript.
 
-Contents:
-- `manuscript.tex`
-- `manuscript.pdf`
+Required contents:
+- `URF-P-0002.tex`
+- `URF-P-0002.pdf`
+- `README.md`
 - `STATUS.md`
 - `CITATION.cff`
 
@@ -22,42 +32,45 @@ Contents:
 
 ## Verification
 
-SHA256 (PDF):
+**SHA256 (PDF):**
 
-6ea7ba94067362437489bd1a522ee3f1dbfd9073e6d46c09d221baba964b12be
+d25d79feac7417c4e449dbdfe4417931c90552bea501e4155c175ff73abcc38c
 
-This hash uniquely identifies the reviewed artifact.
+The PDF was compiled twice with `pdflatex` prior to hashing.
 
 ---
 
 ## Scope of Review
 
-Review is limited to:
+Review is strictly limited to:
 - Mathematical correctness
 - Logical coherence
-- Definition adequacy
+- Adequacy of definitions
 - Dependency clarity
-- Conditional vs unconditional claims
+- Correct labeling of conditional vs. unconditional results
 
-Out of scope:
+### Out of Scope
 - Empirical benchmarking
+- Detector or information-theoretic models
 - Performance comparisons
-- Sociological impact
-- Speculation beyond stated claims
+- Sociological or speculative claims
 
 ---
 
 ## Review Process
 
-Public review will occur via the **URF Open Review Ledger** once this manuscript enters OPEN_REVIEW.
+All public review occurs via the **URF Open Review Ledger**.
 
-(No review issue opened yet.)
+**Review issue:**  
+(to be created in `urf-open-review-ledger`)
 
-Feedback, when opened, must be classified as one of:
-- **ERROR** — demonstrable logical or mathematical error
-- **MISSING ASSUMPTION** — unstated but required hypothesis
-- **CLARIFICATION** — ambiguity or presentation issue
-- **NON-BLOCKING SUGGESTION** — optional improvement
+Feedback **must** be classified as one of:
+- `ERROR`
+- `MISSING ASSUMPTION`
+- `CLARIFICATION`
+- `NON-BLOCKING SUGGESTION`
+
+Unclassified feedback is ignored.
 
 ---
 
@@ -65,23 +78,23 @@ Feedback, when opened, must be classified as one of:
 
 - Conditional results are explicitly labeled.
 - No claim extends beyond stated assumptions.
-- No empirical or model-specific claims are made unless stated.
+- No empirical or model-dependent claims are made unless explicitly stated.
 
 ---
 
 ## Citation
 
-Please cite using the DOI or `CITATION.cff`.
+Please cite using the DOI once assigned or via `CITATION.cff`.
 
 ---
 
 ## License
 
-Unless otherwise stated, this manuscript is released under the license specified in the repository.
+Released under the license specified in this repository unless otherwise noted.
 
 ---
 
 ## Notes
 
-This README is part of the URF reproducible publication pipeline.  
+This README is part of the **URF reproducible publication pipeline**.  
 It is intentionally minimal and reviewer-facing.
