@@ -13,7 +13,7 @@ It defines identity, scope, verification, and the rules for public review.
 **Author:** Inacio F. Vasquez (Independent Researcher)  
 **Status:** FROZEN  
 **Version Tag:** urf-p-0002-v1  
-**DOI:** Not yet assigned
+**DOI:** 10.5281/zenodo.18684473
 
 ---
 
