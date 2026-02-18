@@ -7,13 +7,16 @@
 \usepackage{hyperref}
 \geometry{margin=1in}
 
+% --- Theorem Environments (MANDATORY) ---
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
+
 \theoremstyle{plain}
 \newtheorem{lemma}[definition]{Lemma}
 \newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
 
-\title{UNASSIGNED TITLE}
+\title{Structural Capacity Limits Beyond Local Refinement}
 \author{Inacio F. Vasquez \\ Independent Researcher}
 \date{}
 
@@ -23,10 +26,132 @@
 \hrule
 \vspace{0.5em}
 \noindent
-\textbf{STATUS:} DRAFT \\
-\textbf{SCOPE:} To be defined.
+\textbf{STATUS:} DRAFT / IN PROGRESS \\
+\textbf{SCOPE:} Structural limits of adaptive and multi-context refinement systems under bounded information capacity. \\
+\textbf{DEPENDENCIES:} Shannon information theory; locality-limited computation; entropy accounting; refinement dynamics. \\
+\textbf{NON-CLAIMS:} No empirical claims; no statements about specific algorithms or models; no impossibility for global-invariant, oracle, or unbounded-memory systems.
 \vspace{0.5em}
 \hrule
+
+\section{Background}
+Local refinement procedures form a broad class of reasoning and computation systems.
+Such systems update internal state through bounded-context observations and transformations,
+without access to exact global invariants.
+Classical results in finite model theory, descriptive complexity, and graph algorithms
+establish strong limitations on what fixed-resource local procedures can distinguish.
+
+Recent capacity-based analyses refine these locality limits by explicitly accounting for
+the amount of information a system can retain across sequential updates.
+
+\section{Motivation}
+While single-pass or fixed-rule refinement systems exhibit clear capacity obstructions,
+modern reasoning systems often employ adaptive strategies that compose multiple refinement
+rules across interacting contexts.
+
+This raises a natural question:
+\emph{Do capacity-based obstructions persist when refinement itself is adaptive or multi-contextual?}
+
+This manuscript isolates structural limits that remain invariant under such extensions.
+
+\section{Intuition}
+Adaptive refinement does not eliminate information constraints.
+At each step, a system must still compress observations into a bounded internal transcript.
+Even when multiple refinement channels interact, the total extractable information
+remains bounded by aggregate capacity.
+
+As a result, problems whose solution spaces carry linear or superlinear entropy
+cannot be collapsed by adaptive refinement without exceeding system capacity.
+
+\section{Refinement Systems with Interaction}
+\begin{definition}[Interacting Refinement System]
+An interacting refinement system consists of a finite collection of local refinement processes
+whose internal states may influence one another through bounded-information channels,
+without access to global invariants or unbounded persistent memory.
+\end{definition}
+
+Such systems generalize single-context refinement while preserving locality and capacity constraints.
+
+\section{Aggregate Transcript Capacity}
+\begin{definition}[Aggregate Transcript Capacity]
+The aggregate transcript capacity $\mathrm{TC}_{\mathrm{agg}}$ of an interacting refinement system
+is the supremum of mutual information it can retain, in the Shannon sense,
+about the problem state across all internal channels and refinement steps.
+\end{definition}
+
+\section{Entropy Constraints Under Adaptivity}
+Let $P$ be a problem with solution-space entropy $H(P)$.
+
+\begin{lemma}[Capacity Additivity Bound]
+For any interacting refinement system, the total extractable information across all channels
+is bounded above by $\mathrm{TC}_{\mathrm{agg}}$.
+\end{lemma}
+
+\begin{lemma}[Adaptive Entropy Reduction Bound]
+Adaptive composition of refinement rules does not increase expected per-step entropy reduction
+beyond a constant factor depending only on $\mathrm{TC}_{\mathrm{agg}}$.
+\end{lemma}
+
+\begin{theorem}[Adaptive Entropy--Depth Lower Bound]
+For any interacting refinement system with bounded aggregate transcript capacity,
+solving a problem $P$ with $H(P)=\Theta(n)$ requires $\Omega(n)$ total refinement depth,
+even under adaptive rule composition.
+\end{theorem}
+
+\section{Persistence of the Viotropic Regime}
+\begin{definition}[Operational Mutual Information]
+Let $X$ denote the joint internal state of an interacting refinement system
+and $O$ its joint observation channel. Define
+\[
+I_{\mathrm{op}}(X;O) := H(O) - H(O \mid X).
+\]
+\end{definition}
+
+\begin{definition}[Viotropic Information]
+Information is \emph{viotropic} if $I_{\mathrm{op}}(X;O)=0$,
+meaning it is operationally inaccessible despite internal presence.
+\end{definition}
+
+\begin{theorem}[Adaptive Viotropic Wall --- Conditional]
+There exists $\kappa>0$ such that for any interacting refinement system,
+\[
+H_{\mathrm{extractable}} > \kappa \cdot \mathrm{TC}_{\mathrm{agg}}
+\quad \Rightarrow \quad
+I_{\mathrm{op}}(X;O)=0 .
+\]
+\end{theorem}
+
+\section{Consequences}
+Adaptive refinement does not circumvent structural capacity limits.
+
+\begin{corollary}
+No interacting refinement system with bounded aggregate transcript capacity
+can reliably solve open-ended problems whose solution spaces exhibit unbounded entropy.
+\end{corollary}
+
+\section{Failure Modes}
+The obstruction described here fails if:
+\begin{itemize}
+\item The system acquires exact global invariants.
+\item Persistent memory or oracle access becomes unbounded.
+\item Aggregate transcript capacity scales superlinearly with problem size.
+\end{itemize}
+
+\section{Relationship to Prior Work}
+This result:
+\begin{itemize}
+\item Extends single-context capacity obstructions to adaptive systems.
+\item Refines classical locality results into an explicit entropy framework.
+\item Remains orthogonal to training-scale, optimization, or heuristic explanations.
+\item Does not apply to kernel-verified proof assistants or symbolic systems with exact global checks.
+\end{itemize}
+
+\section*{References}
+\begin{enumerate}
+\item C.\ E.\ Shannon, \emph{A Mathematical Theory of Communication}, Bell System Technical Journal (1948).
+\item L.\ Libkin, \emph{Elements of Finite Model Theory}, Springer (2004).
+\item N.\ Immerman, \emph{Descriptive Complexity}, Springer (1999).
+\item J.\ D.\ Hamkins, \emph{Can large language models do mathematics?}, blog (2023).
+\end{enumerate}
 
 \end{document}
 
