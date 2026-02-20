@@ -98,3 +98,8 @@ Released under the license specified in this repository unless otherwise noted.
 
 This README is part of the **URF reproducible publication pipeline**.  
 It is intentionally minimal and reviewer-facing.
+
+Repository status
+- Placeholder removed
+- Buildable LaTeX artifact present
+- CI produces a PDF
