@@ -32,3 +32,19 @@
 - CITATION.cff
 - URF-P-0002.tex
 - URF-P-0002.pdf
+
+## Repository-Scope Closure: URFP0002-RBC-1
+
+Release boundary certificate: CLOSED under finite manifest verification and explicit non-claim boundary.
+
+Closure artifact: `docs/status/RELEASE_BOUNDARY_CERTIFICATE.md`.
+
+Executable checker: `scripts/verify_release_boundary_certificate.py`.
+
+No repository-level claim of peer-reviewed acceptance.
+
+No repository-level claim of theorem-level completion beyond the listed certificate surface.
+
+No repository-level claim of external validation.
+
+Remaining frontier: external review, independent verification, or theorem-level strengthening beyond this finite certificate surface.
